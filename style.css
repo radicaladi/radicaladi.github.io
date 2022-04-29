@@ -133,3 +133,24 @@ h2 {
     text-decoration: none;
 }
 
+
+#contact {
+    position: fixed;
+    right: 20px;
+    bottom: 14px;
+    color: #2B2B2B;
+    font-size: 0;
+    /*letter-spacing: 0.8px; !*comment out this to make contact links straight*!*/
+    font-family: "Poppins", sans-serif;
+    padding: 10px;
+    z-index: 110;
+}
+
+#contact a {
+    display: inline-block;
+    font-size: 15px;
+    color: #2B2B2B;
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 10px;
+}
