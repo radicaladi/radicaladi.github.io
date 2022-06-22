@@ -133,6 +133,47 @@ h2 {
     text-decoration: none;
 }
 
+ul {
+    list-style-type: none;
+    padding: 10px 0;
+}
+
+ul li {
+    padding: 10px 0;
+    display: flex;
+    position: relative;
+}
+
+ul li a,
+ul li div {
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+}
+
+.article > .salute {
+    /*color: #fff;*/
+    text-transform: uppercase;
+    font-family: "Mulish", sans-serif;
+    font-size: 14px;
+    padding: 40px 0;
+}
+
+.article > .last-para {
+    padding-top: 42px;
+}
+
+.zwanzigzweiundzwanzig::before {
+    content: "2022";
+    opacity: 0.4;
+    font-size: 10px;
+    position: absolute;
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    left: -17px;
+    top: 13px;
+}
 
 #contact {
     position: fixed;
