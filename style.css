@@ -195,3 +195,74 @@ ul li div {
     margin-left: 20px;
     padding: 10px;
 }
+
+#profile-carousel {
+    position: fixed;
+
+    top: 50%;
+    right: 8vw;
+
+    transform: translateY(-50%);
+
+    width: 320px;
+
+    font-family: "Poppins", sans-serif;
+
+    animation: fade-in 8s 2.5s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.carousel-slide {
+    display: none;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+.slide-label {
+    display: inline-block;
+
+    font-size: 11px;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+
+    color: firebrick;
+
+    margin-bottom: 20px;
+}
+
+.carousel-slide p {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 1px;
+
+    color: #303030;
+}
+
+.carousel-nav {
+    display: flex;
+    gap: 10px;
+
+    margin-top: 30px;
+}
+
+.nav-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: #d0d0d0;
+
+    cursor: pointer;
+
+    transition: all .3s ease;
+}
+
+.nav-dot.active {
+    background: firebrick;
+}
