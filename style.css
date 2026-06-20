@@ -214,7 +214,7 @@ ul li div {
     background: firebrick;
 }
 
-/* KEEP YOUR EXISTING CSS — ONLY ADD / ENSURE THESE PARTS */
+// secondary line
 
 .hidden {
     font-size: 150px;
@@ -227,6 +227,21 @@ ul li div {
 
 .article.fade-out {
     opacity: 0;
+}
+
+.zwanzigzweiundzwanzig::before {
+    content: "2022";
+    opacity: 0.35;
+    font-size: 10px;
+
+    position: absolute;
+    left: -18px;
+    top: 12px;
+
+    transform-origin: 0 100%;
+    transform: rotate(-90deg);
+
+    letter-spacing: 0.05em;
 }
 
 /* DOT NAV (DESKTOP) */
@@ -247,6 +262,27 @@ ul li div {
 }
 
 .dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #cfcfcf;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    opacity: 0.6;
+}
+
+.dot:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background: firebrick;
+    opacity: 1;
+    transform: scale(1.35);
+}
+
+/* .dot {
     width: 9px;
     height: 9px;
     border-radius: 50%;
@@ -266,7 +302,7 @@ ul li div {
 
 .dot.active {
     background: firebrick;
-}
+} */
 
 /* MOBILE PROGRESS BAR */
 #carousel-progress {
