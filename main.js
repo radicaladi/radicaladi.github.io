@@ -72,10 +72,7 @@
         `,
 
         `
-        <p>Hello, I'm Adrian, a creative software developer from the Southwest United States.
-        I'm lucky to have had the privilege of learning from the wonderful instructors at
-        <a class="support" href="https://codeup.com/" target="_blank">Codeup</a>.
-        Here's some of my works.</p>
+        <p>Here's some of my works.</p>
 
         <p class="salut">Crafted with love</p>
 
@@ -98,10 +95,6 @@
                 </a>
             </li>
         </ul>
-
-        <p class="last-para">
-            I'm available for work. Feel free to contact me !
-        </p>
         `
     ];
 
