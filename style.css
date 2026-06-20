@@ -196,73 +196,35 @@ ul li div {
     padding: 10px;
 }
 
-#profile-carousel {
-    position: fixed;
+// carousel
+#carousel-nav {
 
-    top: 50%;
-    right: 8vw;
+    padding-left: 20vw;
 
-    transform: translateY(-50%);
+    margin-top: 20px;
 
-    width: 320px;
-
-    font-family: "Poppins", sans-serif;
-
-    animation: fade-in 8s 2.5s;
-    opacity: 0;
-    animation-fill-mode: forwards;
-}
-
-.carousel-slide {
-    display: none;
-}
-
-.carousel-slide.active {
-    display: block;
-}
-
-.slide-label {
-    display: inline-block;
-
-    font-size: 11px;
-    letter-spacing: .3em;
-    text-transform: uppercase;
-
-    color: firebrick;
-
-    margin-bottom: 20px;
-}
-
-.carousel-slide p {
-    font-size: 14px;
-    line-height: 24px;
-    letter-spacing: 1px;
-
-    color: #303030;
-}
-
-.carousel-nav {
     display: flex;
-    gap: 10px;
 
-    margin-top: 30px;
+    gap: 10px;
 }
 
-.nav-dot {
+.dot {
+
     width: 8px;
+
     height: 8px;
 
     border-radius: 50%;
-
-    border: none;
 
     background: #d0d0d0;
 
     cursor: pointer;
 
-    transition: all .3s ease;
+    display: inline-block;
+
+    transition: .3s;
 }
 
-.nav-dot.active {
+.dot.active {
     background: firebrick;
 }
