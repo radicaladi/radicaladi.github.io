@@ -32,9 +32,7 @@
             Hello, I'm Adrian Brown, a creative software developer from the
             Southwest United States. I enjoy building software that balances
             technical excellence with thoughtful user experience.
-        </p>
-
-        <p>
+            <br>
             My background includes full stack development, cloud technologies,
             enterprise software, and continual professional growth.
         </p>
@@ -70,7 +68,32 @@
             <li>Technical Strategy</li>
             <li>Developer Experience</li>
         </ul>
+        `,
         `
+        <p class="section-title">Projects</p>
+
+        <p class="salut">Crafted with love</p>
+
+        <ul>
+            <li>
+                <a href="https://github.com" target="_blank" rel="noopener">
+                    Movie Directory Application
+            </a>
+        </li>
+
+        <li>
+                <a href="https://github.com" target="_blank" rel="noopener">
+                    Weather Forecast Application
+            </a>
+        </li>
+
+        <li class="zwanzigzweiundzwanzig">
+                <a href="https://github.com" target="_blank" rel="noopener">
+                    Coffee Web Project
+            </a>
+        </li>
+    </ul>
+    `
     ];
 
     function makeChange() {
