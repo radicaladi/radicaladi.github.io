@@ -8,20 +8,27 @@
         );
     }
 
-    isMobile() && (
-        document.querySelector("body").classList.remove("desktop"),
-        document.querySelector("body").classList.add("mobile"),
-        document.querySelector(".article").classList.remove("article")
-    );
+    const mobile = isMobile();
 
+    if (mobile) {
+        document.body.classList.remove("desktop");
+        document.body.classList.add("mobile");
+    }
+
+    // Intro hide
     setTimeout(() => {
         const box = document.getElementById("intro");
-        box.style.display = "none";
+        if (box) box.style.display = "none";
     }, 4000);
 
-    const render = function (template, node) {
+    const render = (template, node) => {
         node.innerHTML = template;
     };
+
+    const article = document.querySelector(".article");
+    const dots = document.querySelectorAll(".dot");
+
+    const progressBar = document.getElementById("carousel-progress-bar");
 
     const slides = [
 
@@ -29,11 +36,11 @@
         <p class="section-title">Professional Bio</p>
 
         <p>
-            Hello, I'm Adrian Brown, a creative software developer from the
-            Southwest United States. I enjoy building software that balances
-            technical excellence with thoughtful user experience.
-            <br>
-            <br>
+            Hello, I'm Adrian Braun, a creative software developer from the Southwest United States.
+            I enjoy building software that balances technical excellence with thoughtful user experience.
+        </p>
+
+        <p>
             My background includes full stack development, cloud technologies,
             enterprise software, and continual professional growth.
         </p>
@@ -43,9 +50,8 @@
         <p class="section-title">Résumé</p>
 
         <p>
-            Full Stack Software Developer with experience in Java,
-            Spring Boot, JavaScript, AWS, LLMs, software engineering
-            practices, and enterprise-scale applications.
+            Full Stack Software Developer with experience in Java, Spring Boot,
+            JavaScript, AWS, LLMs, and enterprise systems.
         </p>
 
         <ul>
@@ -58,20 +64,19 @@
         `
         <p class="section-title">Career Interests</p>
 
-        <p>
-            Areas that currently excite me:
-        </p>
-
         <ul>
             <li>Cloud Architecture</li>
             <li>Distributed Systems</li>
             <li>Engineering Leadership</li>
             <li>Technical Strategy</li>
-            <li>Developer Experience</li>
         </ul>
         `,
+
         `
-        <p class="section-title">Projects</p>
+        <p>Hello, I'm Adrian, a creative software developer from the Southwest United States.
+        I'm lucky to have had the privilege of learning from the wonderful instructors at
+        <a class="support" href="https://codeup.com/" target="_blank">Codeup</a>.
+        Here's some of my works.</p>
 
         <p class="salut">Crafted with love</p>
 
@@ -79,43 +84,39 @@
             <li>
                 <a href="https://github.com" target="_blank" rel="noopener">
                     Movie Directory Application
-            </a>
-        </li>
+                </a>
+            </li>
 
-        <li>
+            <li>
                 <a href="https://github.com" target="_blank" rel="noopener">
                     Weather Forecast Application
-            </a>
-        </li>
+                </a>
+            </li>
 
-        <li class="zwanzigzweiundzwanzig">
+            <li class="zwanzigzweiundzwanzig">
                 <a href="https://github.com" target="_blank" rel="noopener">
                     Coffee Web Project
-            </a>
-        </li>
-    </ul>
-    `
+                </a>
+            </li>
+        </ul>
+
+        <p class="last-para">
+            I'm available for work. Feel free to contact me !
+        </p>
+        `
     ];
 
-    function makeChange() {
-        const span = document.getElementById("willChange");
-
-        span.innerHTML = "Creative";
-        span.style.color = "#B22222FF";
-    }
-
-    setTimeout(makeChange, 10500);
-
-    // -------------------------------------
-    // Carousel
-    // -------------------------------------
-
     let currentSlide = 0;
-
-    const article = document.querySelector(".article");
-    const dots = document.querySelectorAll(".dot");
-
     let carouselTimer;
+    let startX = 0;
+    let carouselReady = false;
+
+    function updateProgress(index) {
+        if (!mobile || !progressBar) return;
+
+        const percent = ((index + 1) / slides.length) * 100;
+        progressBar.style.width = percent + "%";
+    }
 
     function showSlide(index) {
 
@@ -125,18 +126,17 @@
 
             currentSlide = index;
 
-            render(
-                slides[currentSlide],
-                article
-            );
+            render(slides[currentSlide], article);
 
-            dots.forEach(dot =>
-                dot.classList.remove("active")
-            );
+            // Desktop dots
+            dots.forEach(dot => dot.classList.remove("active"));
 
             if (dots[currentSlide]) {
                 dots[currentSlide].classList.add("active");
             }
+
+            // Mobile progress bar
+            updateProgress(currentSlide);
 
             article.classList.remove("fade-out");
 
@@ -145,50 +145,101 @@
 
     function changeSlide() {
 
-        let nextSlide = currentSlide + 1;
+        let next = currentSlide + 1;
 
-        if (nextSlide >= slides.length) {
-            nextSlide = 0;
+        if (next >= slides.length) {
+            next = 0;
         }
 
-        showSlide(nextSlide);
+        showSlide(next);
     }
 
     function startCarousel() {
 
-        carouselTimer = setInterval(
-            changeSlide,
-            7000
-        );
+        if (!carouselReady) return;
+
+        carouselTimer = setInterval(changeSlide, 7000);
     }
 
-    dots.forEach(dot => {
+    function resetTimer() {
+        clearInterval(carouselTimer);
+        startCarousel();
+    }
 
-        dot.addEventListener("click", () => {
+    // -------------------------
+    // DESKTOP DOT NAVIGATION
+    // -------------------------
+    if (!mobile) {
 
-            clearInterval(carouselTimer);
+        dots.forEach(dot => {
 
-            showSlide(
-                Number(dot.dataset.slide)
-            );
+            dot.addEventListener("click", () => {
 
-            startCarousel();
+                resetTimer();
+
+                showSlide(Number(dot.dataset.slide));
+            });
+        });
+    }
+
+    // -------------------------
+    // MOBILE SWIPE NAVIGATION
+    // -------------------------
+    if (mobile) {
+
+        article.addEventListener("touchstart", (e) => {
+            startX = e.touches[0].clientX;
         });
 
-    });
+        article.addEventListener("touchend", (e) => {
 
-    // Initial render
-    render(
-        slides[0],
-        article
-    );
+            const endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
 
-    if (dots[0]) {
-        dots[0].classList.add("active");
+            // swipe threshold
+            if (Math.abs(diff) < 40) return;
+
+            let next = currentSlide;
+
+            if (diff > 0) {
+                next = currentSlide + 1; // swipe left
+            } else {
+                next = currentSlide - 1; // swipe right
+            }
+
+            if (next < 0) next = slides.length - 1;
+            if (next >= slides.length) next = 0;
+
+            showSlide(next);
+            resetTimer();
+        });
     }
 
-    currentSlide = 0;
+    // -------------------------
+    // HERO TEXT CHANGE
+    // -------------------------
+    function makeChange() {
+        const span = document.getElementById("willChange");
+        if (!span) return;
 
-    startCarousel();
+        span.innerHTML = "Creative";
+        span.style.color = "#B22222FF";
+    }
+
+    setTimeout(makeChange, 10500);
+
+    // -------------------------
+    // BOOT SEQUENCE (IMPORTANT)
+    // -------------------------
+    setTimeout(() => {
+
+        carouselReady = true;
+
+        showSlide(0);
+        updateProgress(0);
+
+        startCarousel();
+
+    }, 3000);
 
 })();
