@@ -29,7 +29,7 @@
         <p class="section-title">Professional Bio</p>
 
         <p>
-            Hello, I'm Adrian, a creative software developer from the
+            Hello, I'm Adrian Brown, a creative software developer from the
             Southwest United States. I enjoy building software that balances
             technical excellence with thoughtful user experience.
         </p>
