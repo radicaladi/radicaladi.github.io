@@ -15,16 +15,50 @@
         node.innerHTML = template;
     };
 
-    let template = '<p>Hello, I\'m Adrian, a creative software developer from the Southwest United States. I\'m lucky to have had the privilege of learning from the wonderful instructors at <a class="support" href="https://codeup.com/" target="_blank">Codeup</a>. Here\'s some of my works.</p>\n' +
-        '<p class="salut">Crafted with love</p>' +
-        '<ul>' +
-        '<li> <a href="https://github.com" target="_blank" rel="noopener">Movie Directory Application</a></li>' +
-        '<li> <a href="https://github.com" target="_blank" rel="noopener">Weather Forecast Application</a> </li>' +
-        '<li class="zwanzigzweiundzwanzig"> <a href="https://github.com" target="_blank" rel="noopener">Coffee Web Project</a></li>' +
-        '</ul>' +
-        '<p class="last-para">I\'m available for work. Feel free to contact me !</p>';
+    const slides = [
+    `
+    <p class="section-title">Professional Bio</p>
 
-    render(template, document.querySelector('.article'));
+    <p>
+        Hello, I'm Adrian, a creative software developer from the Southwest United States.
+        I enjoy building software that balances technical excellence with thoughtful user experience.
+    </p>
+
+    <p>
+        My background includes full stack development, cloud technologies,
+        enterprise software, and continual professional growth.
+    </p>
+    `,
+    
+    `
+    <p class="section-title">Résumé</p>
+
+    <p>
+        Full Stack Software Developer with experience in Java,
+        SpringBoot, JavaScript, AWS, LLMs, software engineering 
+        practices, and enterprise-scale applications.<br>
+        • JPMorgan Chase & Co  2022-<i>Present</i>
+        • Photographer 2017-2022
+        • United States Army 2013-2017
+    </p>
+    `,
+    
+    `
+    <p class="section-title">Career Interests</p>
+
+    <p>
+        Areas that currently excite me:
+    </p>
+
+    <ul>
+        <li>Cloud Architecture</li>
+        <li>Distributed Systems</li>
+        <li>Engineering Leadership</li>
+        <li>Technical Strategy</li>
+        <li>Developer Experience</li>
+    </ul>
+    `
+];
 
     // const para =
     function makeChange() {
