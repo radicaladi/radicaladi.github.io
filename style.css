@@ -231,19 +231,33 @@ ul li div {
 
 /* DOT NAV (DESKTOP) */
 #carousel-nav {
-    margin-top: 24px;
-    padding-left: 20vw;
+    position: fixed;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+
     display: flex;
-    gap: 10px;
+    flex-direction: column;
+    gap: 14px;
+
+    padding: 0;
+    margin: 0;
+
+    z-index: 200;
 }
 
 .dot {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     background: #d0d0d0;
     cursor: pointer;
     transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: firebrick;
+    transform: scale(1.2);
 }
 
 .dot:hover {
