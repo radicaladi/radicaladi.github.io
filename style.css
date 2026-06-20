@@ -18,6 +18,7 @@ body.mobile {
     will-change: transform;
 }
 
+/* INTRO */
 #intro {
     position: fixed;
     z-index: 9999;
@@ -57,11 +58,13 @@ body.mobile {
     color: firebrick;
 }
 
+/* CANVAS */
 canvas {
     z-index: 1;
     position: absolute;
 }
 
+/* HERO TEXT */
 .hidden {
     display: inline-block;
     font-family: "Poppins", sans-serif;
@@ -72,8 +75,24 @@ canvas {
     animation-fill-mode: forwards;
 }
 
+/* ARTICLE FADE IN */
 .article {
+    font-size: 15px;
+    letter-spacing: 1px;
+    width: 760px;
+    z-index: 101;
+    position: relative;
+    top: 14px;
+    right: 20px;
+    bottom: auto;
+    padding: calc(40vh - 28px) 0 calc(50vh - 28px) 20vw;
+
     animation: fade-in 8s 2.5s;
+    transition: opacity 0.5s ease;
+}
+
+.article.fade-out {
+    opacity: 0;
 }
 
 @keyframes fade-in {
@@ -85,7 +104,7 @@ canvas {
     }
 }
 
-
+/* HEADINGS */
 h1 {
     margin: 14px 0 0 20px;
     font-family: "Poppins", sans-serif;
@@ -103,20 +122,9 @@ h2 {
     font-weight: 100;
 }
 
+/* ARTICLE CONTENT */
 .article-scrollbar {
     display: none !important;
-}
-
-.article {
-    font-size: 15px;
-    letter-spacing: 1px;
-    width: 760px;
-    z-index: 101;
-    position: relative;
-    top: 14px;
-    right: 20px;
-    bottom: auto;
-    padding: calc(40vh - 28px) 0 calc(50vh - 28px) 20vw;
 }
 
 .article p {
@@ -129,7 +137,6 @@ h2 {
 }
 
 .article a {
-    /*color: #fff;*/
     text-decoration: none;
 }
 
@@ -146,42 +153,26 @@ ul li {
 
 ul li a,
 ul li div {
-    -webkit-box-flex: 0;
     flex: 0 0 auto;
 }
 
-.article > .salute {
-    /*color: #fff;*/
+/* SECTION TITLE (CAROUSEL) */
+.section-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    font-family: "Mulish", sans-serif;
-    font-size: 14px;
-    padding: 40px 0;
+    color: firebrick;
+    padding-bottom: 10px;
 }
 
-.article > .last-para {
-    padding-top: 42px;
-}
-
-.zwanzigzweiundzwanzig::before {
-    content: "2022";
-    opacity: 0.4;
-    font-size: 10px;
-    position: absolute;
-    -webkit-transform-origin: 0 100%;
-    transform-origin: 0 100%;
-    -webkit-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-    left: -17px;
-    top: 13px;
-}
-
+/* FOOTER CONTACT */
 #contact {
     position: fixed;
     right: 20px;
     bottom: 14px;
     color: #2B2B2B;
     font-size: 0;
-    /*letter-spacing: 0.8px; !*comment out this to make contact links straight*!*/
     font-family: "Poppins", sans-serif;
     padding: 10px;
     z-index: 110;
@@ -196,33 +187,27 @@ ul li div {
     padding: 10px;
 }
 
-// carousel
+/* CAROUSEL NAV */
 #carousel-nav {
-
     padding-left: 20vw;
-
     margin-top: 20px;
-
     display: flex;
-
     gap: 10px;
 }
 
+/* DOTS */
 .dot {
-
     width: 8px;
-
     height: 8px;
-
     border-radius: 50%;
-
     background: #d0d0d0;
-
     cursor: pointer;
-
     display: inline-block;
+    transition: all 0.3s ease;
+}
 
-    transition: .3s;
+.dot:hover {
+    background: #a0a0a0;
 }
 
 .dot.active {
