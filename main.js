@@ -35,11 +35,9 @@
         <p class="section-title">Professional Bio</p>
 
         <p>
-            Hello, I'm Adrian Braun, a creative software developer from the Southwest United States.
+            Hello, I'm Adrian Brown, a creative software developer from the Southwest United States.
             I enjoy building software that balances technical excellence with thoughtful user experience.
-        </p>
-
-        <p>
+            <br><br>
             My background includes full stack development, cloud technologies,
             enterprise software, and continual professional growth.
         </p>
@@ -74,9 +72,13 @@
         `
         <p>Here's some of my works.</p>
 
-        <p class="salut">Crafted with love</p>
-
         <ul>
+            <li>
+                <a href="https://github.com" target="_blank" rel="noopener">
+                    Project Hand Me Down
+                </a>
+            </li>
+            
             <li>
                 <a href="https://github.com" target="_blank" rel="noopener">
                     Movie Directory Application
