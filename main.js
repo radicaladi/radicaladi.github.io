@@ -15,7 +15,7 @@
         document.body.classList.add("mobile");
     }
 
-    // Intro hide
+    // Intro (UNCHANGED — CSS handles timing)
     setTimeout(() => {
         const box = document.getElementById("intro");
         if (box) box.style.display = "none";
@@ -27,7 +27,6 @@
 
     const article = document.querySelector(".article");
     const dots = document.querySelectorAll(".dot");
-
     const progressBar = document.getElementById("carousel-progress-bar");
 
     const slides = [
@@ -109,7 +108,6 @@
     let currentSlide = 0;
     let carouselTimer;
     let startX = 0;
-    let carouselReady = false;
 
     function updateProgress(index) {
         if (!mobile || !progressBar) return;
@@ -128,14 +126,12 @@
 
             render(slides[currentSlide], article);
 
-            // Desktop dots
             dots.forEach(dot => dot.classList.remove("active"));
 
             if (dots[currentSlide]) {
                 dots[currentSlide].classList.add("active");
             }
 
-            // Mobile progress bar
             updateProgress(currentSlide);
 
             article.classList.remove("fade-out");
@@ -155,9 +151,6 @@
     }
 
     function startCarousel() {
-
-        if (!carouselReady) return;
-
         carouselTimer = setInterval(changeSlide, 7000);
     }
 
@@ -167,7 +160,7 @@
     }
 
     // -------------------------
-    // DESKTOP DOT NAVIGATION
+    // DESKTOP DOTS
     // -------------------------
     if (!mobile) {
 
@@ -183,7 +176,7 @@
     }
 
     // -------------------------
-    // MOBILE SWIPE NAVIGATION
+    // MOBILE SWIPE
     // -------------------------
     if (mobile) {
 
@@ -196,15 +189,14 @@
             const endX = e.changedTouches[0].clientX;
             const diff = startX - endX;
 
-            // swipe threshold
             if (Math.abs(diff) < 40) return;
 
             let next = currentSlide;
 
             if (diff > 0) {
-                next = currentSlide + 1; // swipe left
+                next = currentSlide + 1;
             } else {
-                next = currentSlide - 1; // swipe right
+                next = currentSlide - 1;
             }
 
             if (next < 0) next = slides.length - 1;
@@ -229,17 +221,13 @@
     setTimeout(makeChange, 10500);
 
     // -------------------------
-    // BOOT SEQUENCE (IMPORTANT)
+    // INIT
     // -------------------------
-    setTimeout(() => {
-
-        carouselReady = true;
+    window.addEventListener("load", () => {
 
         showSlide(0);
         updateProgress(0);
-
         startCarousel();
-
-    }, 3000);
+    });
 
 })();
