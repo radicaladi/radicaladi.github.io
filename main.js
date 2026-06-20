@@ -16,7 +16,6 @@
     };
 
     const slides = [
-    `
     <p class="section-title">Professional Bio</p>
 
     <p>
@@ -28,22 +27,19 @@
         My background includes full stack development, cloud technologies,
         enterprise software, and continual professional growth.
     </p>
-    `,
+    ,
     
-    `
     <p class="section-title">Résumé</p>
 
     <p>
         Full Stack Software Developer with experience in Java,
         SpringBoot, JavaScript, AWS, LLMs, software engineering 
         practices, and enterprise-scale applications.<br>
-        • JPMorgan Chase & Co  2022-<i>Present</i>
-        • Photographer 2017-2022
-        • United States Army 2013-2017
+        • JPMorgan Chase & Co - <i>Present</i>
+        • Photographer
+        • United States Army
     </p>
-    `,
-    
-    `
+    ,
     <p class="section-title">Career Interests</p>
 
     <p>
@@ -57,8 +53,7 @@
         <li>Technical Strategy</li>
         <li>Developer Experience</li>
     </ul>
-    `
-];
+    ];
 
     // const para =
     function makeChange() {
@@ -69,63 +64,27 @@
     setTimeout(makeChange, 10500);
 
     // carousel
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.nav-dot');
-
     let currentSlide = 0;
-    let carouselInterval;
 
-    function showSlide(index) {
+    render(
+        slides[currentSlide],
+        document.querySelector('.article')
+    );
+    function changeSlide() {
 
-        slides.forEach(slide =>
-            slide.classList.remove('active')
+    currentSlide++;
+
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    }
+
+    render(
+        slides[currentSlide],
+        document.querySelector('.article')
         );
-
-        dots.forEach(dot =>
-            dot.classList.remove('active')
-        );
-
-        currentSlide = index;
-
-        slides[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active');
     }
 
-    function nextSlide() {
-
-        let next = currentSlide + 1;
-
-        if (next >= slides.length) {
-            next = 0;
-        }
-
-        showSlide(next);
-    }
-
-    function startCarousel() {
-
-        carouselInterval = setInterval(() => {
-
-            nextSlide();
-
-        }, 8000);
-
-    }
-
-    dots.forEach(dot => {
-
-        dot.addEventListener('click', () => {
-
-            clearInterval(carouselInterval);
-
-            showSlide(
-                Number(dot.dataset.slide)
-            );
-
-            startCarousel();
-        });
-
-    });
+    setInterval(changeSlide, 7000);
 
     startCarousel();
 
