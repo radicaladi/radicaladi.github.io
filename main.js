@@ -33,6 +33,7 @@
             Southwest United States. I enjoy building software that balances
             technical excellence with thoughtful user experience.
             <br>
+            <br>
             My background includes full stack development, cloud technologies,
             enterprise software, and continual professional growth.
         </p>
