@@ -213,3 +213,82 @@ ul li div {
 .dot.active {
     background: firebrick;
 }
+
+/* KEEP YOUR EXISTING CSS — ONLY ADD / ENSURE THESE PARTS */
+
+.hidden {
+    font-size: 150px;
+}
+
+/* FADE SUPPORT */
+.article {
+    transition: opacity 0.5s ease;
+}
+
+.article.fade-out {
+    opacity: 0;
+}
+
+/* DOT NAV (DESKTOP) */
+#carousel-nav {
+    margin-top: 24px;
+    padding-left: 20vw;
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d0d0d0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot:hover {
+    background: #a0a0a0;
+}
+
+.dot.active {
+    background: firebrick;
+}
+
+/* MOBILE PROGRESS BAR */
+#carousel-progress {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    #carousel-nav {
+        display: none;
+    }
+
+    #carousel-progress {
+        display: block;
+        position: fixed;
+        bottom: 24px;
+        left: 24px;
+        right: 24px;
+        height: 2px;
+        background: #e0e0e0;
+    }
+
+    #carousel-progress-bar {
+        height: 100%;
+        width: 0%;
+        background: firebrick;
+        transition: width 0.3s ease;
+    }
+
+    .article {
+        width: 100%;
+        padding: 120px 24px 80px 24px;
+        text-align: center;
+    }
+
+    ul li {
+        justify-content: center;
+    }
+}
